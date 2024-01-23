@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const expressLayouts = require("express-ejs-layouts");
 
-app.use(express.urlencoded({ extented: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("./assets"));
 
 app.set("view engine", "ejs");
