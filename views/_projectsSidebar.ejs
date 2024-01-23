@@ -1,12 +1,15 @@
 <link rel="stylesheet" href="/css/projectsSidebar.css" />
 <div class="sidebar-container">
-  <button>+ New Project</button>
+  <button><a href="/newProject">+ New Project</a></button>
   <div>
     <ul>
-      <li>p1</li>
-      <li>p2</li>
-      <li>p3</li>
-      <li>p4</li>
+      <% for( let i = 0; i < allProjects.length; i++ ) { %>
+      <li>
+        <a href="/projectDetail/<%= allProjects[i]._id %>">
+          <%= allProjects[i].name %>
+        </a>
+      </li>
+      <% } %>
     </ul>
   </div>
 </div>
