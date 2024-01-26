@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.newIssue-form-container form {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  padding: 10px 20px;
+}
+.newIssue-form-container form div {
+  margin: 8px 12px;
+}
+
+.newIssue-form-container form label {
+  display: block;
+  font-size: large;
+  /* margin: 4px; */
+  padding-left: 4px;
+  color: gray;
+}
+
+.newIssue-form-container form input[type="text"] {
+  width: 60%;
+  padding: 6px 8px;
+  border: 1px solid lightgray;
+  outline: none;
+  border-radius: 6px;
+}
+.newIssue-form-container form textarea {
+  width: 60%;
+  padding: 6px 8px;
+  border: 1px solid lightgray;
+  outline: none;
+  border-radius: 6px;
+}
+
+.newIssue-form-container form .labels-container input[type="text"] {
+  width: 40%;
+}
+
+.newIssue-form-container form .labels-container button {
+  color: #203159;
+  background-color: #a3c6ff;
+  outline: none;
+  /* background-color: #203159; */
+  font-size: 14px;
+  /* color: white; */
+  padding: 6px 8px;
+  border: 1px solid #a3c6ff;
+  border-radius: 4px;
+  margin-left: 20px;
+}
+
+.newIssue-form-container form .btn-container button {
+  color: whitesmoke;
+  background-color: #203159;
+  outline: none;
+  /* background-color: #203159; */
+  font-size: 14px;
+  /* color: white; */
+  padding: 6px 8px;
+  border: 1px solid #a3c6ff;
+  border-radius: 4px;
+}
+
+.newIssue-form-container form .btn-container button a {
+  text-decoration: none;
+  color: whitesmoke;
+}

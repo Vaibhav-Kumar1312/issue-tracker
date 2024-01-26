@@ -1,0 +1,135 @@
+.project-detail {
+  margin: 0;
+  padding: 16px;
+  background-color: aliceblue;
+}
+
+.detail-container {
+  padding: 12px 0 0 8px;
+}
+.detail-container h2 {
+  margin: 0;
+  padding: 0;
+  font-size: xx-large;
+  font-weight: 550;
+}
+
+.detail-container p {
+  margin: 8px 0 28px 0;
+  /* padding: 0; */
+}
+
+.issues-container {
+  display: flex;
+  padding: 0 0 0 8px;
+}
+
+.search-container {
+  flex-grow: 3;
+  /* width: 60vw; */
+}
+
+.search-container input[type="text"] {
+  border: 1px solid lightgray;
+  color: lightgray;
+  border-radius: 4px;
+  outline: none;
+  padding: 8px;
+  min-width: 30vw;
+}
+
+.search-container button,
+.create-issue-btn {
+  border: 1px solid lightgray;
+  color: lightgray;
+  background-color: aliceblue;
+  border-radius: 4px;
+  outline: none;
+  padding: 8px;
+}
+
+.search-container button a,
+.create-issue-btn a {
+  text-decoration: none;
+}
+
+.search-container .issue-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.search-container .issue-list li {
+  /* margin: 8px; */
+  margin: 8px 0;
+  padding: 12px;
+  border: 1px solid lightblue;
+  border-radius: 4px;
+  background-color: lightgray;
+}
+
+.search-container .issue-list li div h4 {
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0;
+  font-size: large;
+  font-weight: 400;
+}
+
+.search-container .issue-list li div p {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.search-container .issue-list li div span {
+  /* border: 1px solid lightblue; */
+  border-radius: 4px;
+  background-color: #203159;
+  color: white;
+  padding: 6px 8px;
+  font-size: small;
+}
+
+.filters {
+  background-color: white;
+  border: 1px solid whitesmoke;
+  border-radius: 10px;
+  width: 20vw;
+  height: 57vh;
+  flex-grow: 2;
+  margin-top: 40px;
+  margin-left: 12px;
+}
+
+.filter-by-label {
+  /* width: 15vw; */
+  /* border: 1px solid lightgray; */
+  /* background-color: antiquewhite; */
+  border-top: 1px solid whitesmoke;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-by-label p {
+  margin: 0;
+  /* border: 1px solid lightgray; */
+  /* color: lightgray; */
+  /* background-color: aliceblue; */
+  /* border-radius: 4px; */
+  color: lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.filter-by-label label {
+  padding: 6px 10px;
+  color: grey;
+}
+
+.hidden {
+  display: none !important;
+}

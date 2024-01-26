@@ -1,5 +1,65 @@
-<div class="projectDetail">
-  <button><a href="">New issue</a></button>
-  <h2>projectDetail.name</h2>
-  <p>projectDetail.description</p>
+<link rel="stylesheet" href="/css/projectDetail.css" />
+<div class="project-detail">
+  <div class="detail-container">
+    <h2><%= project.name %></h2>
+    <p><%= project.description %></p>
+  </div>
+  <% if (project.issues.length > 0) { %>
+  <div class="issues-container">
+    <div class="search-container">
+      <input id="search-bar" type="text" placeholder="Search Issue.." />
+      <button class="create-issue-btn">
+        <a href="/projectDetail/<%= project._id %>/newIssue">New issue</a>
+      </button>
+      <ul class="issue-list original-list">
+        <% for( let i = 0; i < project.issues.length; i++ ) { %>
+        <li
+          class="issue-list-item"
+          data-issueItem="<%= JSON.stringify(project.issues[i]) %>"
+        >
+          <div>
+            <h4 class="issue-list-title"><%= project.issues[i].title %></h4>
+            <p class="issue-list-description">
+              <%= project.issues[i].description %>
+            </p>
+            <% project.issues[i].label.forEach((item)=>{ %>
+            <span class="issue-labels"><%= item %></span>
+            <% }) %>
+          </div>
+        </li>
+        <% } %>
+      </ul>
+      <ul class="issue-list search-list"></ul>
+    </div>
+
+    <div class="filters">
+      <div class="filter-by-label">
+        <p>Filters</p>
+        <% project.labels.forEach((item)=>{ %>
+        <label class="checkbox-label">
+          <input type="checkbox" name="checkboxValue" value="<%= item %>" />
+          <%= item %>
+        </label>
+        <% }) %>
+      </div>
+
+      <!-- <div class="filter-by-author">
+          <input type="text" placeholder="Select Author" />
+          <%# for( let i = 0; i < array.length; i++ ) { %>
+            <label>
+              <input type="checkbox" name="checkboxValue" value=>
+              ${item}
+          </label>
+          
+          <%# } %>
+        </div> -->
+    </div>
+  </div>
+  <% }else{ %>
+  <button class="create-issue-btn">
+    <a href="/projectDetail/<%= project._id %>/newIssue">New issue</a>
+  </button>
+  <% } %>
 </div>
+
+<script src="/js/projectDetail.js"></script>

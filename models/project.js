@@ -20,6 +20,10 @@ const projectSchema = new mongoose.Schema(
         ref: "Issue",
       },
     ],
+    labels: {
+      type: Array,
+      default: ["Bug", "Enhancement", "First Issue", "Fix"],
+    },
   },
   {
     timestamps: true,

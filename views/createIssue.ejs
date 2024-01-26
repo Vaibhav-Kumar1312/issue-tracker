@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="/css/createIssue.css" />
+<div class="newIssue-form-container">
+  <form
+    action="/projectDetail/<%= parentProjectId %>/newIssue/create"
+    method="POST"
+  >
+    <div class="title-container">
+      <label for="issue-title">Title</label>
+      <input type="text" id="issue-title" name="title" />
+    </div>
+
+    <div class="description-container">
+      <label for="issue-description">Description</label>
+      <textarea
+        id="issue-description"
+        name="description"
+        rows="4"
+        cols="50"
+        placeholder="Describe your issue...."
+      ></textarea>
+    </div>
+
+    <div class="author-container">
+      <label for="issue-author">Author</label>
+      <input type="text" id="project-author" name="author" />
+    </div>
+
+    <div
+      class="labels-container"
+      data-labels="<%= JSON.stringify(serverLabels) %>"
+    >
+      <label for="label-input">Label</label>
+      <input type="text" id="label-input" />
+      <button class="btn-input">+ Add Label</button>
+      <div class="label-checkbox"></div>
+    </div>
+
+    <div class="btn-container">
+      <button type="submit">Create</button>
+      <button><a href="/">Cancel</a></button>
+    </div>
+  </form>
+</div>
+
+<script type="" src="/js/createIssue.js"></script>

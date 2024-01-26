@@ -1,21 +1,28 @@
+<link rel="stylesheet" href="/css/createProject.css" />
 <div class="create-project-container">
   <form action="/newProject/create" method="POST">
-    <label for="project-name">Name</label>
-    <input type="text" id="project-name" name="name" />
+    <div class="name">
+      <label for="project-name">Name</label>
+      <input type="text" id="project-name" name="name" />
+    </div>
 
-    <label for="project-description">Description</label>
-    <textarea
-      id="project-description"
-      name="description"
-      rows="4"
-      cols="50"
-      placeholder="Describe your project...."
-    ></textarea>
-
-    <label for="project-author">Author</label>
-    <input type="text" id="project-author" name="author" />
-
-    <button type="submit">Save</button>
-    <button><a href="/">Cancel</a></button>
+    <div class="description">
+      <label for="project-description">Description</label>
+      <textarea
+        id="project-description"
+        name="description"
+        rows="4"
+        cols="50"
+        placeholder="Describe your project...."
+      ></textarea>
+    </div>
+    <div class="author">
+      <label for="project-author">Author</label>
+      <input type="text" id="project-author" name="author" />
+    </div>
+    <div class="btns">
+      <button type="submit">Save</button>
+      <button><a href="/">Cancel</a></button>
+    </div>
   </form>
 </div>

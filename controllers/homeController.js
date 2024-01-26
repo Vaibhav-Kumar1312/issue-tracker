@@ -1,6 +1,9 @@
 const Project = require("../models/project.js");
-exports.homePage = function homePage(req, res) {
-  return res.render("home", { title: "Home" });
+const Issue = require("../models/issue.js");
+
+exports.homePage = async function homePage(req, res) {
+  const allProjects = await Project.find({});
+  return res.render("home", { title: "Home", allProjects: allProjects });
 };
 
 exports.newProject = async function newProject(req, res) {
@@ -12,9 +15,6 @@ exports.newProject = async function newProject(req, res) {
 };
 
 exports.createNewProject = async function createNewProject(req, res) {
-  console.log(req.body.name);
-  console.log(req.body.description);
-  console.log(req.body.author);
   let newProject = await Project.create({
     name: req.body.name,
     description: req.body.description,
@@ -24,8 +24,46 @@ exports.createNewProject = async function createNewProject(req, res) {
   res.redirect("back");
 };
 
-exports.projectDetail = function projectDetail(req, res) {
+exports.projectDetail = async function projectDetail(req, res) {
+  const allProjects = await Project.find({});
+  const project = await Project.findById(req.params.id)
+    .populate("issues")
+    .exec();
+  return res.render("projectDetail", {
+    title: "Project Detail",
+    allProjects: allProjects,
+    project: project,
+  });
+};
+
+exports.newIssue = async function newIssue(req, res) {
+  const allProjects = await Project.find({});
+  const parentProject = await Project.findById(req.params.id);
+  res.render("createIssue", {
+    title: "New Issue",
+    parentProjectId: req.params.id,
+    serverLabels: parentProject.labels,
+    allProjects: allProjects,
+  });
+};
+
+exports.createIssue = async function createIssue(req, res) {
   console.log(req.params.id);
-  console.log(req.params.name);
+  console.log(req.body);
+  const newIssue = await Issue.create({
+    title: req.body.title,
+    description: req.body.description,
+    author: req.body.author,
+    label: req.body.checkboxValue,
+  });
+  const parentProject = await Project.findById(req.params.id);
+  req.body.checkboxValue.forEach((item) => {
+    if (!parentProject.labels.includes(item)) {
+      parentProject.labels.push(item);
+    }
+  });
+  parentProject.issues.push(newIssue);
+  parentProject.save();
+
   return res.redirect("back");
 };
